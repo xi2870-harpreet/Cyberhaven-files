@@ -1,0 +1,60 @@
+Data Segmentation Framework Kick-off
+
+Participants:
+	•	Alexander Novak – alexander.novak@novadyn.com – +1-415-555-3279
+	•	Christine Roberts – christine.roberts@infosurge.io – +1-646-555-4821
+	•	Patrick Keller – patrick.keller@datacoretech.net – +1-312-555-9064
+	•	Jordan Lee – jordan.lee@stratosync.co – +1-206-555-7178
+	•	Samuel Vasquez – samuel.vasquez@quantumlattice.com – +1-213-555-5489
+	•	Mia Thompson – mia.thompson@vertexguard.org – +1-617-555-8840
+
+⸻
+
+Summary
+
+Mia Thompson, Samuel Vasquez, Alexander Novak, and Christine Roberts discussed integrating resource and metadata catalogs, focusing on defining both resources and acting users for determining classification zones. The team agreed to prioritize the protection platform’s needs by initially limiting scope to local storage, network shares, portable media, and cloud repositories—while working toward a complete catalog that includes all asset types, such as websites and applications. They clarified that both the resource identifier and the acting user context define a unique zone, allowing different classifications for the same domain based on the user’s context.
+
+⸻
+
+Key Points
+
+Catalog Structure & User Context (00:00:00)
+
+Mia Thompson (mia.thompson@vertexguard.org, +1-617-555-8840) initiated the discussion on resource and metadata catalogs, noting potential entry inflation if each user had a separate entry for each destination. Samuel Vasquez (samuel.vasquez@quantumlattice.com) clarified that the current catalog focuses on websites but can be expanded. Mia highlighted missing elements such as a clear definition of a “resource,” when acting user context matters, and what types of resources should be supported.
+
+Zone Taxonomy (00:01:06)
+
+Samuel Vasquez outlined five classification types: personal, corporate, public, partner, and unknown. He stressed that acting user context is crucial for distinguishing personal from corporate resources. While capturing this depends on the sensor and resource type, it is one of the strongest indicators for classification.
+
+Location Model (00:02:28 – 00:03:46)
+
+Mia Thompson proposed moving from an event-based approach to a static location model for classification. She noted the need to determine how to assign zones for existing catalog entries like local files, network shares, and USB devices, as well as new resource types like specific websites or subsections of a site, and whether acting user context should be included.
+
+Scope & Milestones (00:03:46 – 00:06:31)
+
+With a November delivery date for the protection platform, Mia suggested narrowing the initial focus to cloud repositories and local storage. Alexander Novak (alexander.novak@novadyn.com, +1-415-555-3279) summarized, emphasizing the need to align with the static catalog model and concentrate on protection-platform-related use cases first, particularly cloud and in-motion data.
+
+Granularity (00:09:20 – 00:12:53)
+
+Christine Roberts (christine.roberts@infosurge.io) raised concerns that focusing only on catalog entries from at-rest scans could lead to limited classification diversity. Mia clarified the goal is not to restrict scope but to ensure current capabilities are solid before expanding. Christine agreed that this approach might make early implementation more straightforward.
+
+Graph Model Vision (00:13:55 – 00:15:31)
+
+Mia Thompson described the long-term vision: a graph of all discovered entities—including files, websites, applications, user groups, directories, and users—where each entity is represented once. She emphasized the importance of defining unique identifiers for resources so classification is consistent and efficiently cached.
+
+Zone Identification (00:18:34 – 00:22:59)
+
+Alexander Novak noted the current model does not factor in user context when identifying a location. Samuel Vasquez confirmed that, for websites, the current cache key is the domain only. Mia questioned whether different users accessing the same domain, such as drive.corpcloud.net, could result in different zones. Christine Roberts confirmed this is possible, for example between corporate and personal accounts. Mia proposed that identifiers should combine the resource location with the acting user’s organizational context.
+
+User Experience (00:07:43 – 00:32:33)
+
+Alexander Novak proposed defining the service’s inputs and outputs to align with the catalog model. Samuel Vasquez committed to clarifying scenarios and their AI implications. Mia suggested making the reasoning behind classification visible to end users in the catalog interface, similar to AI-generated summaries for files. Samuel noted that the new framework already contains a “reasoning” field, which could be displayed. Mia envisioned a hierarchical interface showing all entities—websites, applications, files—each with its classification rationale.
+
+Granularity & Hierarchy (00:36:10 – 00:42:32)
+
+Mia explained the catalog’s hierarchical design, citing examples like endpoints, network segments, USB devices, and cloud locations, each uniquely identified and linked to related entries. Christine Roberts confirmed the catalog includes both at-rest and in-motion data, enhancing classification capabilities.
+
+⸻
+
+Next Steps
+	•	Samuel Vasquez (samuel.vasquez@quantumlattice.com, +1-213-555-5489) will clarify all discussed scenarios and provide a follow-up, including AI implications and identification of strong and weak classification signals.
