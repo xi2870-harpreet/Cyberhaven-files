@@ -1,11 +1,14 @@
-$ErrorActionPreference = "Stop"
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
+
+Start-Transcript -Path C:\Windows\Temp\windows-bootstrap.log -Append
 
 Write-Output "Starting Windows bootstrap..."
 
-# Run file copy
 & "$PSScriptRoot\copy-files.ps1"
-
-# Install dependencies
 & "$PSScriptRoot\install-dependencies.ps1"
 
 Write-Output "Windows bootstrap completed successfully"
+
+Stop-Transcript
